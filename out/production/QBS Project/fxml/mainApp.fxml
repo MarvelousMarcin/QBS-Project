@@ -100,22 +100,22 @@
                   <Font name="Rubik-Bold" size="20.0" />
                </font>
             </Button>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="65.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="75.0">
                <image>
                   <Image url="@../img/engines.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="164.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="174.0">
                <image>
                   <Image url="@../img/engines.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="260.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="270.0">
                <image>
                   <Image url="@../img/engines.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="353.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="363.0">
                <image>
                   <Image url="@../img/engines.png" />
                </image>

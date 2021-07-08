@@ -18,9 +18,6 @@ import java.util.stream.Stream;
 public class Results {
 
     @FXML
-    private Pane resultPane;
-
-    @FXML
     private ListView<String> listView;
 
     @FXML
@@ -33,10 +30,6 @@ public class Results {
     }
 
     public void initialize(){
-
-        acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(acceptBut));
-        acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(acceptBut));
-
 
         LinkedList<File> files = new LinkedList<>();
 
@@ -51,8 +44,10 @@ public class Results {
         for(File file : files){
             listView.getItems().add(file.toString());
         }
-        
 
+
+        acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(acceptBut));
+        acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(acceptBut));
 
 //  First Version -> Doesn't work and too long
 
