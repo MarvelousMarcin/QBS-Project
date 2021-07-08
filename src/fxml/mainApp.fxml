@@ -120,6 +120,26 @@
                   <Image url="@../img/engines.png" />
                </image>
             </ImageView>
+            <Label fx:id="errorDirLabel" layoutX="411.0" layoutY="72.0" prefHeight="46.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorExtLabel" layoutX="345.0" layoutY="181.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorByteOneLabel" layoutX="345.0" layoutY="277.0" prefHeight="26.0" prefWidth="323.0" textFill="RED">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorByteTwoLabel" layoutX="345.0" layoutY="370.0" prefHeight="26.0" prefWidth="323.0" textFill="RED">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

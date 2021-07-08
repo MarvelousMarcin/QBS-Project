@@ -69,6 +69,18 @@ public class MainApp {
     @FXML
     private TextField textFieldByteOne;
 
+    @FXML
+    private Label errorExtLabel;
+
+    @FXML
+    private Label errorDirLabel;
+
+    @FXML
+    private Label errorByteOneLabel;
+
+    @FXML
+    private Label errorByteTwoLabel;
+
     private Stage primaryStage;
 
     private final DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -84,23 +96,27 @@ public class MainApp {
     public void initialize(){
 
         EventHandler<ActionEvent> nextButAction = actionEvent -> {
-            directory = textFieldDir.getText();
-            extension = textFieldExt.getText();
-            byteStringTo = textFieldByteOne.getText();
-            byteStringWith = textFieldByteTwo.getText();
 
-            dataCollector = new DataCollector.Builder().setDirectory(directory).setExtension(extension).setByteStringTo(byteStringTo).setByteStringWith(byteStringWith).build();
-            System.out.println(dataCollector);
-            FXMLLoader loaderResult = new FXMLLoader(getClass().getResource("/fxml/Results.fxml"));
-            loaderResult.setControllerFactory(e -> new Results(dataCollector));
+            if(checkIfAllFilled()){
 
-            try {
-                Parent root = loaderResult.load();
-                contentPane.getChildren().clear();
-                contentPane.getChildren().add(root);
+                directory = textFieldDir.getText();
+                extension = textFieldExt.getText();
+                byteStringTo = textFieldByteOne.getText();
+                byteStringWith = textFieldByteTwo.getText();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                dataCollector = new DataCollector.Builder().setDirectory(directory).setExtension(extension).setByteStringTo(byteStringTo).setByteStringWith(byteStringWith).build();
+                System.out.println(dataCollector);
+                FXMLLoader loaderResult = new FXMLLoader(getClass().getResource("/fxml/Results.fxml"));
+                loaderResult.setControllerFactory(e -> new Results(dataCollector));
+
+                try {
+                    Parent root = loaderResult.load();
+                    contentPane.getChildren().clear();
+                    contentPane.getChildren().add(root);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         };
@@ -146,6 +162,43 @@ public class MainApp {
         }else{
 
         }
+    }
+
+    public boolean checkIfAllFilled(){
+        boolean ifFilled= true;
+        if(textFieldDir.getText().equals("")){
+            errorDirLabel.setText("You need to enter directory!");
+            ifFilled = false;
+        }
+        else{
+            errorDirLabel.setText("");
+        }
+
+        if(textFieldExt.getText().equals("")){
+            errorExtLabel.setText("You need to enter extension!");
+            ifFilled = false;
+        }
+        else{
+            errorExtLabel.setText("");
+        }
+
+        if(textFieldByteOne.getText().equals("")){
+            errorByteOneLabel.setText("You need to enter first byte string!");
+            ifFilled = false;
+        }
+        else{
+            errorByteOneLabel.setText("");
+        }
+
+        if(textFieldByteTwo.getText().equals("")){
+            errorByteTwoLabel.setText("You need to enter second byte string!");
+            ifFilled = false;
+        }
+        else{
+            errorByteTwoLabel.setText("");
+        }
+
+        return ifFilled;
     }
 
 
