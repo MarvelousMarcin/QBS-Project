@@ -23,6 +23,7 @@ public class Utils {
     public static File[] getFileFromDir(String dir, String ext){
         File directory = new File(dir);
         FileFilter fileFilter = new FileFilter(ext);
+
         return directory.listFiles(fileFilter);
     }
 

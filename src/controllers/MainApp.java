@@ -103,8 +103,6 @@ public class MainApp {
                 e.printStackTrace();
             }
 
-
-
         };
 
         pickDirectoryBut.setOnAction(e -> pickDirectory());
