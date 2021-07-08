@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="resultPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Results">
+   <children>
+      <Label layoutX="154.0" layoutY="76.0" text="Those files will be changed:">
+         <font>
+            <Font name="Rubik-Bold" size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listView" layoutX="62.0" layoutY="145.0" prefHeight="293.0" prefWidth="517.0" />
+   </children>
+</Pane>

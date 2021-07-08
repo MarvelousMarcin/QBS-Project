@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainApp">
+   <children>
+      <Button fx:id="questionBut" layoutX="552.0" layoutY="23.0" mnemonicParsing="false" styleClass="optionBut" stylesheets="@../stylesheets/style.css">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/question.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="exitBut" layoutX="658.0" layoutY="19.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="53.0" styleClass="optionBut" stylesheets="@../stylesheets/style.css">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="minimizeBut" layoutX="605.0" layoutY="23.0" mnemonicParsing="false" styleClass="optionBut" stylesheets="@../stylesheets/style.css">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/mini.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="86.0" layoutY="33.0" text="ByteChanger">
+         <font>
+            <Font name="Rubik-Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="31.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/file.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="contentPane" layoutX="43.0" layoutY="101.0" prefHeight="514.0" prefWidth="639.0">
+         <children>
+            <TextField fx:id="textFieldByteOne" layoutX="78.0" layoutY="272.0" prefHeight="35.0" prefWidth="249.0">
+               <font>
+                  <Font name="Rubik-Bold" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="textFieldExt" layoutX="78.0" layoutY="176.0" prefHeight="35.0" prefWidth="249.0">
+               <font>
+                  <Font name="Rubik-Bold" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="textFieldByteTwo" layoutX="78.0" layoutY="365.0" prefHeight="35.0" prefWidth="249.0">
+               <font>
+                  <Font name="Rubik-Bold" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="pickDirectoryBut" layoutX="345.0" layoutY="83.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" text="Pick">
+               <font>
+                  <Font name="Rubik Bold Italic" size="11.686956405639648" />
+               </font>
+            </Button>
+            <Label fx:id="directoryLabel" layoutX="78.0" layoutY="29.0" text="Enter the directory:">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="extensionLabel" layoutX="78.0" layoutY="134.0" text="Enter the extension:">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="stringToChangeLabel" layoutX="78.0" layoutY="233.0" text="Enter byte string you want to change:">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="stringNewLabel" layoutX="78.0" layoutY="325.0" text="Enter the byte string to which you want to change:">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textFieldDir" layoutX="78.0" layoutY="77.0" prefHeight="35.0" prefWidth="249.0">
+               <font>
+                  <Font name="Rubik-Bold" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="submitBut" layoutX="272.0" layoutY="452.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="110.0" text="Next">
+               <font>
+                  <Font name="Rubik-Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="65.0">
+               <image>
+                  <Image url="@../img/engines.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="164.0">
+               <image>
+                  <Image url="@../img/engines.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="260.0">
+               <image>
+                  <Image url="@../img/engines.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="353.0">
+               <image>
+                  <Image url="@../img/engines.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
