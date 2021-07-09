@@ -25,25 +25,10 @@ import java.io.IOException;
 public class MainApp {
 
     @FXML
-    private AnchorPane mainPane;
-
-    @FXML
     private Pane contentPane;
 
     @FXML
     private Button submitBut;
-
-    @FXML
-    private Label directoryLabel;
-
-    @FXML
-    private Label extensionLabel;
-
-    @FXML
-    private Label stringToChangeLabel;
-
-    @FXML
-    private Label stringNewLabel;
 
     @FXML
     private TextField textFieldDir;
