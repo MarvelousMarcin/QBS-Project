@@ -1,6 +1,8 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Results {
@@ -23,7 +24,10 @@ public class Results {
     @FXML
     private Button acceptBut;
 
+    private Pane contentPane;
     private final DataCollector dataCollector;
+    private LinkedList<File> files;
+
 
     public Results(DataCollector dataCollector){
         this.dataCollector = dataCollector;
@@ -31,7 +35,7 @@ public class Results {
 
     public void initialize(){
 
-        LinkedList<File> files = new LinkedList<>();
+        files = new LinkedList<>();
 
         try (Stream<Path> stream = Files.find(Paths.get(dataCollector.getDirectory()), 10,
                 (path, attr) -> path.getFileName().toString().endsWith("."+dataCollector.getExtension()) ))
@@ -48,30 +52,24 @@ public class Results {
 
         acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(acceptBut));
         acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(acceptBut));
+        acceptBut.setOnAction(e -> showFinalResults());
+    }
 
-//  First Version -> Doesn't work and too long
+    public void showFinalResults(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/FinalPresent.fxml"));
+        loader.setControllerFactory(e -> new FinalPresent(files,dataCollector));
+        try {
+            Parent root = loader.load();
+            contentPane.getChildren().clear();
+            contentPane.getChildren().setAll(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-//        LinkedList<File> allFiles = new LinkedList<>();
-//        Collections.addAll(allFiles,Utils.getFileFromDir(dataCollector.getDirectory(),dataCollector.getExtension()));
-//        ArrayList<Integer> foldersToRemove = new ArrayList<>();
-//
-//        while(Utils.checkIfDirectory(allFiles)) {
-//            int size = allFiles.size();
-//            for (int i = 0; i < size; i++) {
-//                if (allFiles.get(i).isDirectory()) {
-//                    Collections.addAll(allFiles, Utils.getFileFromDir(allFiles.get(i).getAbsolutePath(), dataCollector.getExtension()));
-//                    foldersToRemove.add(i);
-//                }
-//            }
-//            for(int val : foldersToRemove){
-//                allFiles.remove(val);
-//            }
-//            foldersToRemove.clear();
-//        }
-//        for(File file : allFiles){
-//            listView.getItems().add(file.getAbsolutePath());
-//        }
+    }
 
+    public void setContentPane(Pane contentPane){
+        this.contentPane = contentPane;
     }
 
 }

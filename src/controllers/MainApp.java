@@ -93,11 +93,11 @@ public class MainApp {
                 System.out.println(dataCollector);
                 FXMLLoader loaderResult = new FXMLLoader(getClass().getResource("/fxml/Results.fxml"));
                 loaderResult.setControllerFactory(e -> new Results(dataCollector));
-
                 try {
                     Parent root = loaderResult.load();
                     contentPane.getChildren().clear();
                     contentPane.getChildren().add(root);
+                    ((Results)(loaderResult.getController())).setContentPane(contentPane);
 
                 } catch (IOException e) {
                     e.printStackTrace();
