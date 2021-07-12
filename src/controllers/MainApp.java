@@ -179,12 +179,20 @@ public class MainApp {
             errorByteOneLabel.setText("You need to enter first byte string!");
             ifFilled = false;
         }
+        else if(Utils.checkByteString(textFieldByteOne.getText())){
+            errorByteOneLabel.setText("You need to enter correct string!");
+            ifFilled = false;
+        }
         else{
             errorByteOneLabel.setText("");
         }
 
         if(textFieldByteTwo.getText().equals("")){
             errorByteTwoLabel.setText("You need to enter second byte string!");
+            ifFilled = false;
+        }
+        else if(Utils.checkByteString(textFieldByteTwo.getText())){
+            errorByteTwoLabel.setText("You need to enter correct string!");
             ifFilled = false;
         }
         else{

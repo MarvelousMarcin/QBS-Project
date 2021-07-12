@@ -8,7 +8,7 @@
 
 <Pane fx:id="resultPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Results">
    <children>
-      <Label fx:id="infoLabel" layoutX="154.0" layoutY="31.0" text="Those files will be changed:">
+      <Label fx:id="infoLabel" layoutX="205.0" layoutY="31.0" text="Those files were found:">
          <font>
             <Font name="Rubik-Bold" size="24.0" />
          </font>

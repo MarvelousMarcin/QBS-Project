@@ -4,7 +4,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -77,7 +77,8 @@ public class Results {
 
     public void showFinalResults(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/FinalPresent.fxml"));
-        loader.setControllerFactory(e -> new FinalPresent(files,dataCollector));
+        loader.setControllerFactory(e -> new FinalPresent(files,dataCollector, primaryStage));
+
         try {
             Parent root = loader.load();
             contentPane.getChildren().clear();
@@ -91,15 +92,7 @@ public class Results {
     }
 
     private void goBack(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
-        try {
-            Scene mainScene = new Scene(loader.load());
-            mainScene.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/stylesheets/style.css"))).toExternalForm());
-            mainScene.setFill(Color.TRANSPARENT);
-            primaryStage.setScene(mainScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //TODO RESTARTING
     }
 
     public void setPrimaryStage(Stage primaryStage){
