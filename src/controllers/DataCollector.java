@@ -19,8 +19,7 @@ public class DataCollector {
         }
 
         public Builder setExtension(String extension){
-
-            this.extension = extension.replace(".","");;
+            this.extension = extension.replace(".","").strip();
             return this;
 
         }

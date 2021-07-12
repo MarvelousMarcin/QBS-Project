@@ -3,6 +3,7 @@ package controllers;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class FinalPresent {
@@ -15,11 +16,12 @@ public class FinalPresent {
         this.dataCollector = dataCollector;
     }
 
-
     public void initialize(){
         for(File file : files){
             System.out.println(file);
             try {
+                System.out.println(Arrays.toString(Files.readAllBytes(file.toPath())));
+
                 Files.write(file.toPath(), Utils.changerEngine(Files.readAllBytes(file.toPath()),
                         Utils.stringToIntArray(dataCollector.getByteStringTo()),
                         Utils.stringToIntArray(dataCollector.getByteStringWith()))

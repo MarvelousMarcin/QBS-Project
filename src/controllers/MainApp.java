@@ -1,7 +1,6 @@
 package controllers;
 
-import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,13 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 
-import javax.swing.plaf.basic.BasicTreeUI;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -148,6 +146,7 @@ public class MainApp {
             try {
                 Thread.sleep(2000);
             } catch(InterruptedException ignored) {
+
             }
             Platform.runLater(() -> pickDirectoryBut.setDisable(false));
         }).start();
@@ -156,7 +155,6 @@ public class MainApp {
         if(dir != null) {
             textFieldDir.setText(dir.getAbsolutePath());
         }
-
     }
 
     public boolean checkIfAllFilled(){

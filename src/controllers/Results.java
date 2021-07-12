@@ -1,6 +1,6 @@
 package controllers;
 
-import com.sun.tools.javac.Main;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,9 +31,6 @@ public class Results {
 
     @FXML
     private Label infoLabel;
-
-    @FXML
-    private Pane resultPane;
 
     private Pane contentPane;
 
@@ -94,8 +90,6 @@ public class Results {
         this.contentPane = contentPane;
     }
 
-
-
     private void goBack(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
         try {
@@ -106,9 +100,7 @@ public class Results {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public void setPrimaryStage(Stage primaryStage){
         this.primaryStage = primaryStage;
