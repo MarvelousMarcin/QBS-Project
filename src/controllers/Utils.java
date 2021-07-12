@@ -1,8 +1,7 @@
 package controllers;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 public class Utils {
 
@@ -11,7 +10,7 @@ public class Utils {
     }
 
     public static byte[] stringToIntArray(String string){
-        String[] array = string.split(" ");
+        String[] array = string.split("//+");
         byte[] ints = new byte[array.length];
 
         for(int i =0;i<array.length;i++){

@@ -24,8 +24,9 @@ public class Main extends Application {
             mainScene.setFill(Color.TRANSPARENT);
 
             ((MainApp)(loader.getController())).setPrimaryStage(primaryStage);
-            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setTitle("Byte String Changer");
+            primaryStage.setResizable(false);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.getIcons().add(new Image("/img/icon.png"));
             primaryStage.setScene(mainScene);
             primaryStage.show();

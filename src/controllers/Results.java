@@ -1,12 +1,18 @@
 package controllers;
 
+import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,10 +30,19 @@ public class Results {
     @FXML
     private Button acceptBut;
 
+    @FXML
+    private Label infoLabel;
+
+    @FXML
+    private Pane resultPane;
+
     private Pane contentPane;
+
     private final DataCollector dataCollector;
+
     private LinkedList<File> files;
 
+    private Stage primaryStage;
 
     public Results(DataCollector dataCollector){
         this.dataCollector = dataCollector;
@@ -45,14 +60,23 @@ public class Results {
             e.printStackTrace();
         }
 
-        for(File file : files){
-            listView.getItems().add(file.toString());
+        if(files.isEmpty()){
+            infoLabel.setText("Sorry, we could not find any files!");
+            infoLabel.setTranslateY(100);
+            infoLabel.setTextFill(Color.RED);
+            acceptBut.setText("Go back!");
+            listView.setVisible(false);
+
+            acceptBut.setOnAction(e -> goBack());
         }
-
-
+        else {
+            for (File file : files) {
+                listView.getItems().add(file.toString());
+            }
+            acceptBut.setOnAction(e -> showFinalResults());
+        }
         acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(acceptBut));
         acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(acceptBut));
-        acceptBut.setOnAction(e -> showFinalResults());
     }
 
     public void showFinalResults(){
@@ -65,11 +89,29 @@ public class Results {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void setContentPane(Pane contentPane){
+        this.contentPane = contentPane;
+    }
+
+
+
+    private void goBack(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
+        try {
+            Scene mainScene = new Scene(loader.load());
+            mainScene.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/stylesheets/style.css"))).toExternalForm());
+            mainScene.setFill(Color.TRANSPARENT);
+            primaryStage.setScene(mainScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void setContentPane(Pane contentPane){
-        this.contentPane = contentPane;
+
+    public void setPrimaryStage(Stage primaryStage){
+        this.primaryStage = primaryStage;
     }
 
 }

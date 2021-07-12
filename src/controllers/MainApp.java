@@ -2,6 +2,7 @@ package controllers;
 
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -90,7 +91,6 @@ public class MainApp {
                 byteStringWith = textFieldByteTwo.getText();
 
                 dataCollector = new DataCollector.Builder().setDirectory(directory).setExtension(extension).setByteStringTo(byteStringTo).setByteStringWith(byteStringWith).build();
-                System.out.println(dataCollector);
                 FXMLLoader loaderResult = new FXMLLoader(getClass().getResource("/fxml/Results.fxml"));
                 loaderResult.setControllerFactory(e -> new Results(dataCollector));
                 try {
@@ -98,6 +98,8 @@ public class MainApp {
                     contentPane.getChildren().clear();
                     contentPane.getChildren().add(root);
                     ((Results)(loaderResult.getController())).setContentPane(contentPane);
+                    ((Results)(loaderResult.getController())).setPrimaryStage(primaryStage);
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -141,12 +143,20 @@ public class MainApp {
     }
 
     private void pickDirectory(){
-        File dir = directoryChooser.showDialog(null);
-        if(dir != null){
-            textFieldDir.setText(dir.getAbsolutePath());
-        }else{
+        new Thread(() -> {
+            Platform.runLater(() -> pickDirectoryBut.setDisable(true));
+            try {
+                Thread.sleep(2000);
+            } catch(InterruptedException ignored) {
+            }
+            Platform.runLater(() -> pickDirectoryBut.setDisable(false));
+        }).start();
 
+        File dir = directoryChooser.showDialog(null);
+        if(dir != null) {
+            textFieldDir.setText(dir.getAbsolutePath());
         }
+
     }
 
     public boolean checkIfAllFilled(){
