@@ -51,6 +51,7 @@ public class Results {
 
         files = new LinkedList<>();
 
+        //Looking for files in directory with given extension
         try (Stream<Path> stream = Files.find(Paths.get(dataCollector.getDirectory()), 10,
                 (path, attr) -> path.getFileName().toString().endsWith("."+dataCollector.getExtension()) ))
         {

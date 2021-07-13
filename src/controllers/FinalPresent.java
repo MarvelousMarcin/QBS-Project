@@ -21,7 +21,6 @@ public class FinalPresent {
 
     private final LinkedList<File> files;
     private final DataCollector dataCollector;
-    private HashMap<File, Integer> changes;
     private int changesVal;
     private final Stage primaryStage;
 
@@ -38,7 +37,7 @@ public class FinalPresent {
     }
 
     public void initialize(){
-        changes = new HashMap<>();
+        HashMap<File, Integer> changes = new HashMap<>();
 
         for(File file : files){
             changesVal = 0;
@@ -59,7 +58,7 @@ public class FinalPresent {
         System.out.println(dataCollector.getByteStringTo());
         System.out.println(dataCollector.getByteStringWith());
         for(File file : files){
-            finalResults.getItems().add(file.getName() + "\t\t\tChanges: "+changes.get(file));
+            finalResults.getItems().add(file.getName() + "\t\t\tChanges: "+ changes.get(file));
         }
 
         restartBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(restartBut));

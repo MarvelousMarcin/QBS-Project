@@ -104,6 +104,8 @@ public class MainApp {
             }
         };
 
+
+        //Animations and action handling of all buttons
         pickDirectoryBut.setOnAction(e -> pickDirectory());
         pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(pickDirectoryBut));
         pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(pickDirectoryBut));
@@ -140,10 +142,12 @@ public class MainApp {
     }
 
     private void pickDirectory(){
+        //After clicking pick directory button, the button will be turned off for 4s
+        //Prevents double clicking on it and showing couple of windows
         new Thread(() -> {
             Platform.runLater(() -> pickDirectoryBut.setDisable(true));
             try {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             } catch(InterruptedException ignored) {
 
             }
@@ -157,7 +161,7 @@ public class MainApp {
     }
 
     public boolean checkIfAllFilled(){
-        boolean ifFilled= true;
+        boolean ifFilled = true;
         if(textFieldDir.getText().equals("")){
             errorDirLabel.setText("You need to enter directory!");
             ifFilled = false;
