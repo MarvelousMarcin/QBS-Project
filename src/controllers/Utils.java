@@ -6,16 +6,17 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Utils {
-
+    //Providing that we cannot create object
     private Utils(){
         throw  new AssertionError();
     }
 
-
+    //Animations to buttons
     public static EventHandler<MouseEvent> getAnimationEntry(Button button) {
         return mouseEvent -> {
             ScaleTransition scaleTransition = new ScaleTransition();
@@ -55,20 +56,46 @@ public class Utils {
     }
 
     public static byte[] changerEngine(byte[] source, byte[] arrayToChange, byte[] arrayChangeWith, FinalPresent fp){
-        for(int i=0;i<=source.length-arrayToChange.length;i++){
-            byte[] subArray = Arrays.copyOfRange(source , i, i+arrayChangeWith.length);
-            if(Arrays.equals(arrayToChange, subArray)){
+
+        ArrayList<Byte> sourceArray = new ArrayList<>();
+        List<Byte> toChangeArray = new ArrayList<>();
+        List<Byte> changeWithArray = new ArrayList<>();
+
+        for(byte b : source){
+            sourceArray.add(b);
+        }
+        for(byte b : arrayToChange){
+            toChangeArray.add(b);
+        }
+        for(byte b : arrayChangeWith){
+            changeWithArray.add(b);
+        }
+
+        System.out.println("Before: "+sourceArray);
+
+        for(int i=0;i<=sourceArray.size()-toChangeArray.size();i++){
+            List<Byte> subArray = sourceArray.subList(i,i+toChangeArray.size());
+            if(toChangeArray.equals(subArray)){
+                //Adding one to change counter
                 fp.addChange();
-                System.out.println("Changing" + Arrays.toString(subArray));
-                System.out.println(Arrays.toString(subArray));
-                System.arraycopy(arrayChangeWith, 0, source, i, i + arrayChangeWith.length - i);
+                System.out.println(i + " " + (i+toChangeArray.size()));
+                sourceArray.subList(i,i+toChangeArray.size()).clear();
+                sourceArray.addAll(i,changeWithArray);
+                //If we add new byte string we have to skip through it
+                i+= changeWithArray.size()-1;
             }
         }
-        return source;
+        System.out.println("After: "+sourceArray);
+        byte[] newSource = new byte[sourceArray.size()];
+        for(int i=0;i<newSource.length;i++){
+            newSource[i] = sourceArray.get(i);
+        }
+
+        return newSource;
     }
-
+    //Checking if byte string is correct
     public static boolean checkByteString(String byteString){
-
+        //Not a double
         if(byteString.contains(".") || byteString.contains("/")){
             return true;
         }
@@ -81,9 +108,7 @@ public class Utils {
             } catch (NumberFormatException ex) {
                 return true;
             }
-            if(array[i].length() > 3){
-                return true;
-            }
+
             ints[i] = Integer.parseInt(array[i]);
         }
 
@@ -94,7 +119,4 @@ public class Utils {
         }
         return false;
     }
-
-
-
 }

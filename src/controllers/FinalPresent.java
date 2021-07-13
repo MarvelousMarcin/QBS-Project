@@ -22,7 +22,7 @@ public class FinalPresent {
     private final DataCollector dataCollector;
     private HashMap<File, Integer> changes;
     private int changesVal;
-    private Stage primaryStage;
+    private final Stage primaryStage;
 
 
 

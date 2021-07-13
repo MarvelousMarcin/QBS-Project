@@ -1,7 +1,5 @@
 package controllers;
 
-
-import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,6 +32,9 @@ public class Results {
     @FXML
     private Label infoLabel;
 
+    @FXML
+    private Label warning;
+
     private Pane contentPane;
 
     private final DataCollector dataCollector;
@@ -64,6 +65,7 @@ public class Results {
             infoLabel.setTextFill(Color.RED);
             acceptBut.setText("Go back!");
             listView.setVisible(false);
+            warning.setVisible(false);
 
             acceptBut.setOnAction(e -> goBack());
         }
