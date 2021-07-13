@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -24,14 +25,11 @@ public class FinalPresent {
     private int changesVal;
     private final Stage primaryStage;
 
-
-
     @FXML
     private ListView<String> finalResults;
 
     @FXML
     private Button restartBut;
-
 
     public FinalPresent(LinkedList<File> files, DataCollector dataCollector, Stage primaryStage){
         this.files = files;
@@ -63,6 +61,9 @@ public class FinalPresent {
         for(File file : files){
             finalResults.getItems().add(file.getName() + "\t\t\tChanges: "+changes.get(file));
         }
+
+        restartBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(restartBut));
+        restartBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(restartBut));
 
         restartBut.setOnAction(e -> goBack());
     }

@@ -19,6 +19,6 @@
             <Font name="Rubik-Bold" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="warning" layoutX="385.0" layoutY="451.0" text="They files might get destroyed!!" textFill="RED" />
+      <Label fx:id="warning" layoutX="385.0" layoutY="451.0" text="Files might get destroyed!!" textFill="RED" />
    </children>
 </Pane>

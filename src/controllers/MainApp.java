@@ -96,13 +96,10 @@ public class MainApp {
                     contentPane.getChildren().add(root);
                     ((Results)(loaderResult.getController())).setContentPane(contentPane);
                     ((Results)(loaderResult.getController())).setPrimaryStage(primaryStage);
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
         };
 
         pickDirectoryBut.setOnAction(e -> pickDirectory());

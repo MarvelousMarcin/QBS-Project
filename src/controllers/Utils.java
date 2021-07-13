@@ -78,7 +78,6 @@ public class Utils {
             if(toChangeArray.equals(subArray)){
                 //Adding one to change counter
                 fp.addChange();
-                System.out.println(i + " " + (i+toChangeArray.size()));
                 sourceArray.subList(i,i+toChangeArray.size()).clear();
                 sourceArray.addAll(i,changeWithArray);
                 //If we add new byte string we have to skip through it
