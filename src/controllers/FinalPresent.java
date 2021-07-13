@@ -1,6 +1,5 @@
 package controllers;
 
-import com.sun.javafx.css.StyleCacheEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,6 +24,8 @@ public class FinalPresent {
     private int changesVal;
     private Stage primaryStage;
 
+
+
     @FXML
     private ListView<String> finalResults;
 
@@ -35,6 +36,7 @@ public class FinalPresent {
     public FinalPresent(LinkedList<File> files, DataCollector dataCollector, Stage primaryStage){
         this.files = files;
         this.dataCollector = dataCollector;
+        this.primaryStage = primaryStage;
     }
 
     public void initialize(){
@@ -70,9 +72,10 @@ public class FinalPresent {
     }
 
     private void goBack(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
         try {
-            Scene mainScene = new Scene(loader.load());
+            FXMLLoader loaderBack = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
+            Scene mainScene = new Scene(loaderBack.load());
+            ((MainApp)loaderBack.getController()).setPrimaryStage(primaryStage);
             mainScene.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/stylesheets/style.css"))).toExternalForm());
             mainScene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(mainScene);

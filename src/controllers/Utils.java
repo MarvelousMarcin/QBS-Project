@@ -75,6 +75,12 @@ public class Utils {
         String[] array = byteString.split(" ");
         int[] ints = new int[array.length];
         for(int i =0;i<array.length;i++){
+            //Checking if number
+            try {
+                double d = Double.parseDouble(array[i]);
+            } catch (NumberFormatException ex) {
+                return true;
+            }
             if(array[i].length() > 3){
                 return true;
             }
@@ -88,6 +94,7 @@ public class Utils {
         }
         return false;
     }
+
 
 
 }

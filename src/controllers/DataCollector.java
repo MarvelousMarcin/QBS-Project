@@ -49,7 +49,7 @@ public class DataCollector {
     }
 
     public String toString(){
-        return "Dir: "+directory+" Ext: "+extension+" ByteStringTo: "+byteStringTo+" ByteStringWith: "+byteStringWith;
+        return "Dir: "+directory+" Ext: "+extension+" ByteStringTo: "+ byteStringTo +" ByteStringWith: "+byteStringWith;
     }
 
     public String getDirectory() {

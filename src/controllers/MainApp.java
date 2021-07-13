@@ -76,7 +76,6 @@ public class MainApp {
     private String byteStringTo;
     private String byteStringWith;
 
-
     public void initialize(){
 
         EventHandler<ActionEvent> nextButAction = actionEvent -> {
@@ -200,6 +199,10 @@ public class MainApp {
         }
 
         return ifFilled;
+    }
+
+    public Pane getContentPane() {
+        return contentPane;
     }
 
 
