@@ -107,22 +107,22 @@ public class MainApp {
         };
 
         pickDirectoryBut.setOnAction(e -> pickDirectory());
-        pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.PICK_DIR.animateEntry(pickDirectoryBut));
-        pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.PICK_DIR.animateExit(pickDirectoryBut));
+        pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(pickDirectoryBut));
+        pickDirectoryBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(pickDirectoryBut));
 
-        exitBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.EXIT_BUT.animateEntry(exitBut));
-        exitBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.EXIT_BUT.animateExit(exitBut));
+        exitBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(exitBut));
+        exitBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(exitBut));
         exitBut.setOnAction(e -> exitAction());
 
-        minimizeBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.MINI_BUT.animateEntry(minimizeBut));
-        minimizeBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.MINI_BUT.animateExit(minimizeBut));
+        minimizeBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(minimizeBut));
+        minimizeBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(minimizeBut));
         minimizeBut.setOnAction(e -> minimize());
 
-        questionBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(questionBut));
-        questionBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(questionBut));
+        questionBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(questionBut));
+        questionBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(questionBut));
 
-        submitBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.NEXT_BUT.animateEntry(submitBut));
-        submitBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.NEXT_BUT.animateExit(submitBut));
+        submitBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(submitBut));
+        submitBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(submitBut));
         submitBut.addEventHandler(ActionEvent.ACTION, nextButAction);
 
     }

@@ -1,5 +1,11 @@
 package controllers;
 
+import javafx.animation.ScaleTransition;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+
 import java.util.Arrays;
 
 
@@ -8,6 +14,36 @@ public class Utils {
     private Utils(){
         throw  new AssertionError();
     }
+
+
+    public static EventHandler<MouseEvent> getAnimationEntry(Button button) {
+        return mouseEvent -> {
+            ScaleTransition scaleTransition = new ScaleTransition();
+            scaleTransition.setNode(button);
+            scaleTransition.setDuration(Duration.seconds(.4));
+            scaleTransition.setCycleCount(1);
+            scaleTransition.setToX(1.2);
+            scaleTransition.setToY(1.2);
+            scaleTransition.setAutoReverse(false);
+            scaleTransition.play();
+        };
+
+    }
+
+    public static EventHandler<MouseEvent> getAnimationExit(Button button) {
+        return mouseEvent -> {
+            ScaleTransition scaleTransition = new ScaleTransition();
+            scaleTransition.setNode(button);
+            scaleTransition.setDuration(Duration.seconds(.4));
+            scaleTransition.setCycleCount(1);
+            scaleTransition.setToX(1);
+            scaleTransition.setToY(1);
+            scaleTransition.setAutoReverse(false);
+            scaleTransition.play();
+        };
+
+    }
+
 
     public static byte[] stringToIntArray(String string){
         String[] array = string.split(" ");

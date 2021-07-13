@@ -71,8 +71,8 @@ public class Results {
             }
             acceptBut.setOnAction(e -> showFinalResults());
         }
-        acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Animations.QUESTION_BUT.animateEntry(acceptBut));
-        acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Animations.QUESTION_BUT.animateExit(acceptBut));
+        acceptBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(acceptBut));
+        acceptBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(acceptBut));
     }
 
     public void showFinalResults(){
