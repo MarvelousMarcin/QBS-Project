@@ -95,7 +95,7 @@ public class Results {
     }
 
     private void goBack(){
-        try {
+        try{
             FXMLLoader loaderBack = new FXMLLoader(getClass().getResource("/fxml/mainApp.fxml"));
             Scene mainScene = new Scene(loaderBack.load());
             ((MainApp)loaderBack.getController()).setPrimaryStage(primaryStage);

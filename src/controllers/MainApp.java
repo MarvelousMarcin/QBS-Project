@@ -7,9 +7,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
@@ -116,6 +118,7 @@ public class MainApp {
 
         questionBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(questionBut));
         questionBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(questionBut));
+        questionBut.setOnAction(e -> showHelper());
 
         submitBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(submitBut));
         submitBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(submitBut));
@@ -200,6 +203,24 @@ public class MainApp {
 
     public Pane getContentPane() {
         return contentPane;
+    }
+
+    public void showHelper(){
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Helper.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert root != null;
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.getIcons().add(new Image("/img/icon.png"));
+        stage.setResizable(false);
+        stage.show();
     }
 
 
