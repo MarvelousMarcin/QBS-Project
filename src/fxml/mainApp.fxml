@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainApp">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="728.0" stylesheets="@../stylesheets/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainApp">
    <children>
       <Button fx:id="questionBut" layoutX="552.0" layoutY="23.0" mnemonicParsing="false" styleClass="optionBut" stylesheets="@../stylesheets/style.css">
          <graphic>
@@ -38,9 +38,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="81.0" layoutY="33.0" text="ByteChanger">
+      <Label layoutX="81.0" layoutY="32.0" text="ByteChanger">
          <font>
-            <Font name="Rubik-Bold" size="20.0" />
+            <Font name="Gill Sans" size="25.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="31.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">

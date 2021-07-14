@@ -1,28 +1,16 @@
 #mainPane{
     -fx-background-radius: 40px;
 }
-
 .optionBut{
     -fx-background-color: transparent;
 }
-
-
-#submitBut{
+#restartBut,#submitBut, #acceptBut{
     -fx-background-radius: 30px;
     -fx-border-color: none;
     -fx-border-style: none;
     -fx-background-color: #5CBC67;
     -fx-text-fill: white;
 }
-
-#restartBut{
-    -fx-background-radius: 30px;
-    -fx-border-color: none;
-    -fx-border-style: none;
-    -fx-background-color: #5CBC67;
-    -fx-text-fill: white;
-}
-
 #pickDirectoryBut{
     -fx-background-radius: 10px;
     -fx-border-color: none;
@@ -31,10 +19,4 @@
     -fx-text-fill: white;
 }
 
-#acceptBut{
-    -fx-background-radius: 30px;
-    -fx-border-color: none;
-    -fx-border-style: none;
-    -fx-background-color: #5CBC67;
-    -fx-text-fill: white;
-}
+

@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -82,6 +81,7 @@ public class MainApp {
 
     public void initialize(){
 
+        //Minimize function doesn't work on macOS
         if(!isWindows()){
             minimizeBut.setVisible(false);
         }
@@ -123,7 +123,7 @@ public class MainApp {
 
         minimizeBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(minimizeBut));
         minimizeBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(minimizeBut));
-        minimizeBut.setOnAction(e -> minimize());
+        minimizeBut.setOnAction(e -> ( (Stage) ( (Button) e.getSource() ).getScene().getWindow() ).setIconified(true));
 
         questionBut.addEventHandler(MouseEvent.MOUSE_ENTERED, Utils.getAnimationEntry(questionBut));
         questionBut.addEventHandler(MouseEvent.MOUSE_EXITED, Utils.getAnimationExit(questionBut));
@@ -135,11 +135,6 @@ public class MainApp {
 
     }
 
-
-    private void minimize(){
-        primaryStage.setIconified(true);
-    }
-
     private void exitAction(){
         System.exit(0);
     }
@@ -148,6 +143,9 @@ public class MainApp {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Method allows user to choose the directory
+     */
     private void pickDirectory(){
         //After clicking pick directory button, the button will be turned off for 4s
         //Prevents double clicking on it and showing couple of windows
@@ -167,6 +165,9 @@ public class MainApp {
         }
     }
 
+    /**
+     * @return true or false, depend if every textFiled is filled in correct way
+     */
     public boolean checkIfAllFilled(){
         boolean ifFilled = true;
         if(textFieldDir.getText().equals("")){
@@ -234,13 +235,14 @@ public class MainApp {
         stage.show();
     }
 
-    public static String getOsName()
-    {
+    /**
+     * @return Name of operating system
+     */
+    public static String getOsName() {
         if(OS == null) { OS = System.getProperty("os.name"); }
         return OS;
     }
-    public static boolean isWindows()
-    {
+    public static boolean isWindows() {
         return getOsName().startsWith("Windows");
     }
 

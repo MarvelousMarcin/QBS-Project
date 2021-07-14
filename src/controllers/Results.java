@@ -106,7 +106,6 @@ public class Results {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void setPrimaryStage(Stage primaryStage){

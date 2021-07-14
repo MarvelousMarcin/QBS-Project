@@ -13,7 +13,7 @@ import java.util.List;
 public class Utils {
     //Providing that we cannot create object
     private Utils(){
-        throw  new AssertionError();
+        throw new AssertionError();
     }
 
     /**
@@ -99,7 +99,7 @@ public class Utils {
                 sourceArray.subList(i,i+toChangeArray.size()).clear();
                 sourceArray.addAll(i,changeWithArray);
                 //If we add new byte string we have to skip through it
-                i+= changeWithArray.size()-1;
+                i += changeWithArray.size()-1;
             }
         }
         System.out.println("After: "+sourceArray);
@@ -112,14 +112,20 @@ public class Utils {
     }
 
     /**
-     *
      * @param byteString string to be checked
      * @return true or false - check if given string is a byte string(every number between -127 and 127, no letters or
      * other symbols, every letter divided with one space)
      */
     public static boolean checkByteString(String byteString){
         //Not a double
-        if(byteString.contains(".") || byteString.contains("/")){
+        if(byteString.contains(".")
+                || byteString.contains("/")
+                || byteString.contains("*")
+                || byteString.contains("+")
+                || byteString.contains("-")
+                || byteString.contains("#")
+                || byteString.contains("&")
+        ){
             return true;
         }
         String[] array = byteString.split(" ");
