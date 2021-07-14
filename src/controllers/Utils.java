@@ -16,7 +16,13 @@ public class Utils {
         throw  new AssertionError();
     }
 
-    //Animations to buttons
+    /**
+     * Methods which create simple mouse animation
+     *
+     * @param button which need to be animated during mouse movement
+
+     * @return EventHandler<MouseEvent> - handler which will provide animation
+     */
     public static EventHandler<MouseEvent> getAnimationEntry(Button button) {
         return mouseEvent -> {
             ScaleTransition scaleTransition = new ScaleTransition();
@@ -45,7 +51,11 @@ public class Utils {
 
     }
 
-
+    /**
+     *
+     * @param string with bytes(between -127 ana 127) divided by space
+     * @return byte[] array with every byte in different cell
+     */
     public static byte[] stringToIntArray(String string){
         String[] array = string.split(" ");
         byte[] ints = new byte[array.length];
@@ -55,6 +65,14 @@ public class Utils {
         return ints;
     }
 
+    /**
+     *
+     * @param source  byte string of the file for instance .txt file with byte string [122, 33, 44, 22]
+     * @param arrayToChange  part of the file string which we want to replace
+     * @param arrayChangeWith  array with new string
+     * @param fp  class which implements counter to see how many changes in file string we will make
+     * @return new file byte string with new replaced party
+     */
     public static byte[] changerEngine(byte[] source, byte[] arrayToChange, byte[] arrayChangeWith, FinalPresent fp){
 
         ArrayList<Byte> sourceArray = new ArrayList<>();
@@ -92,7 +110,13 @@ public class Utils {
 
         return newSource;
     }
-    //Checking if byte string is correct
+
+    /**
+     *
+     * @param byteString string to be checked
+     * @return true or false - check if given string is a byte string(every number between -127 and 127, no letters or
+     * other symbols, every letter divided with one space)
+     */
     public static boolean checkByteString(String byteString){
         //Not a double
         if(byteString.contains(".") || byteString.contains("/")){
