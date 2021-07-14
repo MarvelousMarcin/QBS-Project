@@ -38,7 +38,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="86.0" layoutY="33.0" text="ByteChanger">
+      <Label layoutX="81.0" layoutY="33.0" text="ByteChanger">
          <font>
             <Font name="Rubik-Bold" size="20.0" />
          </font>

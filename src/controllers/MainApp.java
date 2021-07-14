@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -73,12 +74,18 @@ public class MainApp {
 
     private DataCollector dataCollector;
 
-    private String directory;
-    private String extension;
-    private String byteStringTo;
-    private String byteStringWith;
+    private String directory = null;
+    private String extension = null;
+    private String byteStringTo = null;
+    private String byteStringWith = null;
+    private static String OS = null;
 
     public void initialize(){
+
+        if(!isWindows()){
+            minimizeBut.setVisible(false);
+        }
+
 
         EventHandler<ActionEvent> nextButAction = actionEvent -> {
 
@@ -227,5 +234,14 @@ public class MainApp {
         stage.show();
     }
 
+    public static String getOsName()
+    {
+        if(OS == null) { OS = System.getProperty("os.name"); }
+        return OS;
+    }
+    public static boolean isWindows()
+    {
+        return getOsName().startsWith("Windows");
+    }
 
 }
