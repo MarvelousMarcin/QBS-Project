@@ -3,7 +3,7 @@
 ### Technologies
 Mostly JavaFX, some CSS and HTML
 
-###Quick note about code
+### Quick note about code
 Program is using Builder Design Pattern
 
 ### About program and how to use
